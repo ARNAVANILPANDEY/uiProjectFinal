@@ -4,6 +4,7 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+
 .info p {
   text-align:center;
   color: #999;
@@ -36,7 +37,7 @@ form {
   overflow: hidden;
 }
 
-p span {
+p span  {
   color: #F00;
 }
 
@@ -155,4 +156,30 @@ i {
 
 #sendmessage.show,.show  {
   display:block;
+}
+.nom{
+  font-size: 13px;
+  padding: 10px 8px 10px 14px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.nom .nom{
+  width: 120%;
+  background-position:80% center;
+}
+
+.nom.select select{
+  background: transparent;
+  line-height: 1;
+  border: 0;
+  padding: 0;
+  border-radius: 0;
+  width: 120%;
+  position: relative;
+  z-index: 10;
+  font-size: 1em;
 }
