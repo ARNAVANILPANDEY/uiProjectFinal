@@ -56,7 +56,7 @@ public class jsonConv {
         }
 
         try {
-            FileWriter file = new FileWriter("output.json");
+            FileWriter file = new FileWriter(".//my-app/src/output.json");
             file.write(jsonArray.toJSONString());
             file.close();
         } catch (IOException e) {
