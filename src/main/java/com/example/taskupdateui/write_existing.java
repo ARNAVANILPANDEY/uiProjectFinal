@@ -1,8 +1,11 @@
-package com.example.taskupdateui;
+package loll;
 
 
 import java.io.File;
+import java.io.FileInputStream;
+
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -14,17 +17,18 @@ import java.util.*;
 public class write {
 
 	// any exceptions need to be caught
-	public static void main(Vector<HashMap<String,String>> arg) throws IOException
+	public static void main(String[]args) throws IOException
 	{
+		
+		 FileInputStream fis = new FileInputStream(new File("final.xlsx"));
 		// workbook object
-		XSSFWorkbook workbook = new XSSFWorkbook();
+		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 
 		// spreadsheet object
 		XSSFSheet spreadsheet
-			= workbook.createSheet(" Student Data ");
+			= workbook.getSheet(" Student Data ");
 
-		// creating a row object
-		XSSFRow row;
+
 
 		// This data needs to be written (Object[])
 		HashMap<Long, Object[]> studentData
@@ -44,39 +48,44 @@ public class write {
 
 
 
-		for ( HashMap<String, String> tem: arg)
-		{
-			System.out.println();
-			System.out.println("tem is "+tem);
-			studentData.put(Long.valueOf(tem.get("Installment_Number")),new Object[]{tem.get("Installment_Number"),
-					tem.get(("Stage_Number")),
-					tem.get(("Installment_Due_Date")),
-					tem.get(("Installment_Amount")),
-					tem.get(("Interest_Rate")),
-					tem.get(("Current_Principal")),
-					tem.get(("Current_Interest")),
-					tem.get(("Current_Opening Balance")),
-					tem.get(("Current_Closing Balance"))});
-		}
+//		for ( HashMap<String, String> tem: arg)
+//		{
+//			System.out.println();
+//			System.out.println("tem is "+tem);
+//			studentData.put(Long.valueOf(tem.get("Installment_Number")),new Object[]{tem.get("Installment_Number"),
+//					tem.get(("Stage_Number")),
+//					tem.get(("Installment_Due_Date")),
+//					tem.get(("Installment_Amount")),
+//					tem.get(("Interest_Rate")),
+//					tem.get(("Current_Principal")),
+//					tem.get(("Current_Interest")),
+//					tem.get(("Current_Opening Balance")),
+//					tem.get(("Current_Closing Balance"))});
+//		}
 		System.out.println("STUDENT DATA MAP :"+studentData);
 		List<Long> keyStrings=new ArrayList<>(studentData.keySet());
 		Collections.sort(keyStrings);
 		//Set<String> keyid = studentData.keySet();
-		System.out.println("KEYSTIRNGS"+keyStrings);
-		int rowid = 0;
+		
+		int rowid = spreadsheet.getLastRowNum();
+		System.out.println(rowid);
+		 
 
 		// writing the data into the sheets...
 
 		for (Long key : keyStrings) {
 
 
-			row = spreadsheet.createRow(rowid++);
+			 XSSFRow row = spreadsheet.createRow(rowid++);
 			Object[] objectArr = studentData.get(key);
 			
-			int cellid = 0;
+			 int columnCount = 0;
+			 
+             // Create new cell for each row
+             XSSFCell cell = row.createCell(columnCount);
 
 			for (Object obj : objectArr) {
-				Cell cell = row.createCell(cellid++);
+				cell = row.createCell(columnCount++);
 				
 				cell.setCellValue((String)obj);
 				System.out.println("Object Write:"+obj);
@@ -84,15 +93,15 @@ public class write {
 		}
 
 		
-		FileOutputStream out = new FileOutputStream(
-			new File("final.xlsx"));
+		 fis.close();
+		 
+         // Write the workbook in file system
+         FileOutputStream outputStream = new FileOutputStream("final.xlsx");
+         workbook.write(outputStream);
+         System.out.println("Excel is updated successfully");
 
-
-		workbook.write(out);
-		out.close();
+         // Close the workbook
+         workbook.close();
+         outputStream.close();
 	}
 }
-
-
-
-
