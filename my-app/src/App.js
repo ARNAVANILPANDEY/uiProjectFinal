@@ -51,7 +51,6 @@ function App() {
 
             axios.post("http://localhost:8080/response/postbody",data);
             console.log("Request Successful!!!!!");
-            //window.open('C:\\Users\\arnpande\\Documents\\Task-1-trial\\src\\main\\resources\\static\\react\\my-app\\src\\final_page.html','_blank');
 
 
             alert("Changing Page");

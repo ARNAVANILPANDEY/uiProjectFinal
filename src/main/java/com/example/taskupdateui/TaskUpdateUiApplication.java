@@ -197,9 +197,9 @@ public class TaskUpdateUiApplication {
             System.out.print(" "+retClass.colCurrInterest.elementAt(i)+" ");
             tempMap.put("Current_Interest",String.valueOf(retClass.colCurrInterest.elementAt(i)));
             System.out.print(" "+retClass.colCurrOpeningBalance.elementAt(i)+" ");
-            tempMap.put("Current_Opening Balance",String.valueOf(retClass.colCurrOpeningBalance.elementAt(i)));
+            tempMap.put("Current_Opening_Balance",String.valueOf(retClass.colCurrOpeningBalance.elementAt(i)));
             System.out.print(" "+retClass.colCurrClosingBalance.elementAt(i)+" ");
-            tempMap.put("Current_Closing Balance",String.valueOf(retClass.colCurrClosingBalance.elementAt(i)));
+            tempMap.put("Current_Closing_Balance",String.valueOf(retClass.colCurrClosingBalance.elementAt(i)));
             System.out.println("");
             retVec.addElement(tempMap);
 
