@@ -29,8 +29,8 @@ form h1 {
 }
 
 form {
-  border-radius: 5px;
-  max-width:700px;
+  border-radius: 10px;
+  max-width:1400px;
   width:100%;
   margin: 5% auto;
   background-color: #FFFFFF;
@@ -59,7 +59,7 @@ input {
   border-radius: 0px 5px 5px 0px;
   border: 1px solid #eee;
   margin-bottom: 15px;
-  width: 75%;
+  width: 55%;
   height: 40px;
   float: left;
   padding: 0px 15px;
@@ -109,24 +109,38 @@ i {
   text-align: center;
   width: 100%;
   border:0;
-  padding: 17px 25px;
+  padding: 15px 20px;
   border-radius: 0px 0px 5px 5px;
   cursor: pointer;
   margin-top: 40px;
   font-size: 18px;
 }
 
-.leftcontact {
-  width:49.5%; 
+.firstColumn {
+  width:25.0%; 
   float:left;
   border-right: 1px dotted #CCC;
   box-sizing: border-box;
-  padding: 0px 15px 0px 0px;
+  padding: 15px 0px 0px 0px;
+}
+.secondColumn {
+  width:25.0%; 
+  float:left;
+  border-right: 1px dotted #CCC;
+  box-sizing: border-box;
+  padding: 0px 0px 0px 15px;
 }
 
-.rightcontact {
-  width:49.5%;
-  float:right;
+.thirdColumn {
+  width:25.0%;
+  float:left;
+  box-sizing: border-box;
+  border-right: 1px dotted #CCC;
+  padding: 0px 0px 0px 15px;
+}
+.fourthColumn {
+  width:25.0%;
+  float:left;
   box-sizing: border-box;
   padding: 0px 0px 0px 15px;
 }
