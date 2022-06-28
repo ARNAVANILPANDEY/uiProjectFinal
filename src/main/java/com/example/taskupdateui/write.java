@@ -55,8 +55,8 @@ public class write {
 					tem.get(("Interest_Rate")),
 					tem.get(("Current_Principal")),
 					tem.get(("Current_Interest")),
-					tem.get(("Current_Opening Balance")),
-					tem.get(("Current_Closing Balance"))});
+					tem.get(("Current_Opening_Balance")),
+					tem.get(("Current_Closing_Balance"))});
 		}
 		System.out.println("STUDENT DATA MAP :"+studentData);
 		List<Long> keyStrings=new ArrayList<>(studentData.keySet());

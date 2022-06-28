@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Vector;
 
-//import static jdk.nashorn.internal.objects.NativeMath.round;
+
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -63,7 +63,7 @@ public class TaskUpdateUiApplication {
         Date date1=new SimpleDateFormat("yyyy-MM-dd").parse(sDate1);
        // SimpleDateFormat sdfNew=new SimpleDateFormat("dd MMM yy");
 
-      //  System.out.println(sDate1+"\t"+sdfNew.format(date1));
+
 
 
 
@@ -97,7 +97,6 @@ public class TaskUpdateUiApplication {
         }
         cal.setTime(par);
 
-        //System.out.println("JAVA DATE IS \t"+simpleformat2.format(javaDate));
 
         /* ********************************Preparing data************************************ */
         xlClass retClass =new xlClass();
@@ -207,7 +206,7 @@ public class TaskUpdateUiApplication {
         System.out.println("Return Vector:\t"+retVec);
         //Call the write class
         jsonConv.writeOutput(retVec);
-        write.main(retVec);
+        write_existing.main(retVec,readData);
 
 
 
