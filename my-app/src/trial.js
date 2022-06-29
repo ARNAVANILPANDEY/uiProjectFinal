@@ -1,6 +1,6 @@
 
 import './App.css';
-import React, { useState, useEffect } from 'react';
+//import React, { useState, useEffect } from 'react';
 import JsonData from './output.json'
 
 function trial() {

@@ -28,11 +28,11 @@ import java.text.DecimalFormat;
 public class TaskUpdateUiApplication {
 
 
-    public double calculatePmt(double principle, double rate, long installPerYear, long years)
+    public double calculatePmt(double principle, double rate,long installPerYear ,long totInstall)
     {
         double PMT;
         double ratePerInstallment=rate/installPerYear;
-        long totInstall=installPerYear*years;
+        //long totInstall=installPerYear*years;
         PMT=(principle*ratePerInstallment)/(1-Math.pow((1+ratePerInstallment),(-1*totInstall)));
 
         return PMT;
@@ -70,16 +70,17 @@ public class TaskUpdateUiApplication {
         //System.out.println("Hello");
         Double fees= Double.valueOf(readData.get("Finance Fees")),
                 principleAmount=Double.valueOf(readData.get("Amount"))+fees,
-                rateOfInterest=Double.valueOf(readData.get("Interest Rate"));
-        Long installmentsPerYear = Long.valueOf(12), totYears= (Double.valueOf(readData.get("Tenure")).longValue())/12,
+                rateOfInterest=Double.valueOf(readData.get("Interest Rate"))/100,
+                totYears= (Double.parseDouble(readData.get("Tenure")))/12;
+        Long installmentsPerYear = Long.valueOf(12),
                 totInstallments;
         Double pmt,lastPMT;
-        totInstallments=installmentsPerYear*totYears;
+        totInstallments=Long.valueOf(readData.get("Tenure"));
         Double currPrincipal, currInterest, currOpenBal, currClosBal;
 
 
 
-        pmt=calculatePmt(principleAmount,rateOfInterest,installmentsPerYear,totYears);
+        pmt=calculatePmt(principleAmount,rateOfInterest,installmentsPerYear,totInstallments);
         System.out.println("PMT= "+pmt);
 
         /* ********************************Calender works**************************************** */
